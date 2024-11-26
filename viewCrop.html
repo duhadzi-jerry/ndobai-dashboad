@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-sm">
+
+<div class="flex">
+    <!-- Sidebar -->
+    <div class="fixed top-0 left-0 h-screen w-64 bg-white shadow-md hidden md:block" id="sidenav">
+    <div class="text-center py-6">
+      <img src="path/to/logo.png" alt="Logo" class="h-20 mx-auto">
+    </div>
+    <div>
+      <a href="home.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-home mr-3"></i> Home
+      </a>
+      <a href="allFarmers.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Farmers
+      </a>
+      <a href="allFarms.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-globe mr-3"></i> Farms
+      </a>
+      <a href="allPartners.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Partners
+      </a>
+      <a href="allAgents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Agents
+      </a>
+      <a href="allCrops.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-sun mr-3"></i> Crops
+      </a>
+      <a href="allFiles.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Files
+      </a>
+      <a href="allContents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Content
+      </a>
+      <a href="allPractices.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-file mr-3"></i> Best Practices
+      </a>
+    </div>
+  </div>
+
+    <!-- Main Content -->
+    <div class="flex-grow ml-0 md:ml-64 p-6">
+
+
+        <!-- Crop Details -->
+        <div class="rounded-lg shadow p-6 mt-4">
+            <div class="flex justify-between items-center">
+                <span></span>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-edit"></i>
+                    <p>Edit</p>
+                </div>
+            </div>
+            <h2 class="text-center text-2xl font-bold m-5">Crop Name</h2>
+            <hr class="my-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <p><strong>Created at:</strong> 01-01-2024</p>
+                <p><strong>Last Updated:</strong> 15-11-2024</p>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="flex justify-between items-center mt-6">
+            <h3 class="text-lg font-bold">Best Practices</h3>
+            <button id="openSidebar" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                + Attach Practice
+            </button>
+        </div>
+        <table class="w-full mt-4 bg-white shadow rounded-lg">
+            <thead class="bg-gray-800 text-white">
+                <tr>
+                    <th class="py-2 px-4">Practice</th>
+                    <th class="py-2 px-4">Duration</th>
+                    <th class="py-2 px-4">Status</th>
+                    <th class="py-2 px-4">Created At</th>
+                    <th class="py-2 px-4">Last Updated</th>
+                    <th class="py-2 px-4">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b">
+                    <td class="py-2 px-4">Watering</td>
+                    <td class="py-2 px-4">1 Month</td>
+                    <td class="py-2 px-4">Active</td>
+                    <td class="py-2 px-4">01-01-2024</td>
+                    <td class="py-2 px-4">15-11-2024</td>
+                    <td class="py-2 px-4">
+                        <button class="text-blue-500">Edit</button>
+                        <button class="text-red-500">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Sidebar -->
+<div id="sidebar" class="fixed top-0 right-[-100%] w-80 h-full bg-gray-100 shadow-lg p-6 transition-all">
+    <button id="closeSidebar" class="text-right text-red-500">Close</button>
+    <h3 class="text-lg font-bold mb-4">Attach Practice</h3>
+    <form>
+        <label class="block text-sm mb-2">Practice</label>
+        <select class="w-full mb-4 p-2 border rounded">
+            <option>Select Practice</option>
+            <option>Watering</option>
+            <option>Fertilizing</option>
+        </select>
+        <label class="block text-sm mb-2">Duration</label>
+        <input type="text" class="w-full mb-4 p-2 border rounded" placeholder="Duration">
+        <button type="submit" class="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600">Attach</button>
+    </form>
+</div>
+
+<script>
+    const openSidebar = document.getElementById('openSidebar');
+    const closeSidebar = document.getElementById('closeSidebar');
+    const sidebar = document.getElementById('sidebar');
+
+    openSidebar.addEventListener('click', () => {
+        sidebar.style.right = '0';
+    });
+
+    closeSidebar.addEventListener('click', () => {
+        sidebar.style.right = '-100%';
+    });
+</script>
+
+</body>
+</html>

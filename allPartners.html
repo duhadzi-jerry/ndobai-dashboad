@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-sm flex">
+
+  <!-- Sidebar -->
+  <div class="fixed top-0 left-0 h-screen w-64 bg-white shadow-md hidden md:block" id="sidenav">
+    <div class="text-center py-6">
+      <img src="path/to/logo.png" alt="Logo" class="h-20 mx-auto">
+    </div>
+    <div>
+      <a href="home.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-home mr-3"></i> Home
+      </a>
+      <a href="allFarmers.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Farmers
+      </a>
+      <a href="allFarms.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-globe mr-3"></i> Farms
+      </a>
+      <a href="allPartners.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Partners
+      </a>
+      <a href="allAgents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Agents
+      </a>
+      <a href="allCrops.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-sun mr-3"></i> Crops
+      </a>
+      <a href="allFiles.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Files
+      </a>
+      <a href="allContents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Content
+      </a>
+      <a href="allPractices.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-file mr-3"></i> Best Practices
+      </a>
+    </div>
+  </div>
+
+
+  <!-- Main Content -->
+  <main class="flex-1 ml-64 p-4">
+    <!-- Header -->
+    <header class="flex justify-between items-center bg-white shadow-md p-4 rounded-md mb-4">
+      <input type="text" placeholder="Search" class="w-full m-3 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+      <button class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 add-partner" style="width:10rem;">
+        <i class="fa fa-plus"></i> New Partner
+      </button>
+    </header>
+
+    <!-- Table -->
+    <div class="overflow-x-auto mt-6">
+      <table class="w-full text-left rounded-lg shadow-lg overflow-hidden">
+        <thead class="bg-gray-800 text-white">
+          <tr>
+            <th class="p-3">Name</th>
+            <th class="p-3">Phone</th>
+            <th class="p-3">Pin</th>
+            <th class="p-3">Created At</th>
+            <th class="p-3">Last Updated</th>
+            <th class="p-3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-gray-50 hover:bg-gray-100">
+            <td class="p-3">John Doe</td>
+            <td class="p-3">+233000000000</td>
+            <td class="p-3">****</td>
+            <td class="p-3">10-08-2024 06:36</td>
+            <td class="p-3">10-08-2024 06:36</td>
+            <td class="p-3">
+              <button class="text-blue-500 hover:text-blue-700"><i class="fa fa-edit"></i> Edit</button>
+              <button class="text-red-500 hover:text-red-700 ml-2"><i class="fa fa-trash"></i> Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- New Partner Sidebar -->
+    <div id="add-partner-sidebar" class="fixed top-0 right-[-400px] w-[400px] h-full bg-white shadow-lg transition-all duration-300 overflow-y-auto rounded-lg">
+      <div class="p-6">
+        <button class="text-gray-500 hover:text-black float-right" id="close-partner-sidebar">
+          <i class="fa fa-times"></i>
+        </button>
+        <h4 class="text-lg font-bold mb-4">New Partner</h4>
+        <form>
+          <div class="grid grid-cols-1 gap-4">
+            <input type="text" placeholder="Partner Name" class="border p-2 rounded" required>
+            <input type="text" placeholder="Phone Number" class="border p-2 rounded" required>
+            <input type="password" placeholder="Pin" class="border p-2 rounded" required>
+            <input type="password" placeholder="Confirm Pin" class="border p-2 rounded" required>
+            <div class="flex items-center gap-2">
+              <input type="text" placeholder="Enter OTP" class="border p-2 rounded flex-1" required>
+              <button type="button" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                Send OTP
+              </button>
+            </div>
+          </div>
+          <div class="flex justify-end mt-4 space-x-2">
+            <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600" id="close-partner-sidebar">Cancel</button>
+            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Sidebar toggles
+    document.querySelector('.add-partner').addEventListener('click', () => {
+      const sidebar = document.getElementById('add-partner-sidebar');
+      sidebar.style.right = '0'; // Show sidebar
+    });
+
+    document.getElementById('close-partner-sidebar').addEventListener('click', () => {
+      const sidebar = document.getElementById('add-partner-sidebar');
+      sidebar.style.right = '-400px'; // Hide sidebar
+    });
+  </script>
+</body>
+</html>

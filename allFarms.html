@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-sm flex">
+
+  <!-- Sidebar -->
+  <div class="fixed top-0 left-0 h-screen w-64 bg-white shadow-md hidden md:block" id="sidenav">
+    <div class="text-center py-6">
+      <img src="path/to/logo.png" alt="Logo" class="h-20 mx-auto">
+    </div>
+    <div>
+      <a href="home.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-home mr-3"></i> Home
+      </a>
+      <a href="allFarmers.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Farmers
+      </a>
+      <a href="allFarms.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-globe mr-3"></i> Farms
+      </a>
+      <a href="allPartners.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Partners
+      </a>
+      <a href="allAgents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Agents
+      </a>
+      <a href="allCrops.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-sun mr-3"></i> Crops
+      </a>
+      <a href="allFiles.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Files
+      </a>
+      <a href="allContents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Content
+      </a>
+      <a href="allPractices.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-file mr-3"></i> Best Practices
+      </a>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="flex-1 ml-64 p-4">
+    <!-- Header -->
+    <header class="flex justify-end items-center bg-white shadow-md p-4 rounded-md mb-4">
+      <input type="text" placeholder="Search" class="w-full m-3 p-3 border rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-green-500">
+      <a href="#" class="btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded add-farm" style="width: 10rem;">
+        <i class="fa fa-plus"></i> New Farm
+      </a>
+    </header>
+    <div class="overflow-x-auto mt-3">
+        <table class="w-full border-collapse rounded-lg overflow-hidden shadow-lg">
+            <thead class="bg-gray-800 text-white">
+                <tr>
+                    <th class="py-3 px-4 text-left min-w-[10rem]">Farmer's Name</th>
+                    <th class="py-3 px-4 text-left min-w-[10rem]">Crop</th>
+                    <th class="py-3 px-4 text-left min-w-[10rem]">Location</th>
+                    <th class="py-3 px-4 text-left min-w-[10rem]">Created At</th>
+                    <th class="py-3 px-4 text-left min-w-[10rem]">Last Updated</th>
+                    <th class="py-3 px-4 text-left min-w-[10rem]">Action</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white">
+                <tr class="hover:bg-gray-100 border-b transition-colors duration-300 ease-in-out">
+                    <td class="py-3 px-4">John Doe</td>
+                    <td class="py-3 px-4">Corn, Wheat</td>
+                    <td class="py-3 px-4">12.9716° N, 77.5946° E</td>
+                    <td class="py-3 px-4">01-01-2024 12:00</td>
+                    <td class="py-3 px-4">02-01-2024 14:30</td>
+                    <td class="py-3 px-4">
+                        <a href="viewFarm.html" class="text-blue-500 hover:underline"><i class="fa fa-eye"></i> View</a>
+                        <a href="#" class="text-red-500 hover:underline ml-2"><i class="fa fa-trash"></i> Delete</a>
+                    </td>
+                </tr>
+                <tr class="hover:bg-gray-100 border-b transition-colors duration-300 ease-in-out">
+                    <td class="py-3 px-4">Jane Smith</td>
+                    <td class="py-3 px-4">Rice, Barley</td>
+                    <td class="py-3 px-4">19.0760° N, 72.8777° E</td>
+                    <td class="py-3 px-4">05-02-2024 09:30</td>
+                    <td class="py-3 px-4">06-02-2024 11:45</td>
+                    <td class="py-3 px-4">
+                        <a href="viewFarm.html" class="text-blue-500 hover:underline"><i class="fa fa-eye"></i> View</a>
+                        <a href="#" class="text-red-500 hover:underline ml-2"><i class="fa fa-trash"></i> Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="add-farm" class="fixed top-0 right-[-400px] w-[400px] h-full bg-gray-100 shadow-lg transition-all duration-300 z-50 overflow-y-auto">
+    <div class="p-4">
+        <button id="x-addfarm-sidebar" class="text-gray-500 hover:text-black float-right">
+            <i class="fa fa-times"></i>
+        </button>
+        <h4 class="text-lg font-bold mb-2">New Farm</h4>
+        <span><b>Create new farm</b></span>
+        <hr class="my-2">
+        
+        <form class="space-y-4 mt-5">
+            <div>
+                <h5 class="text-sm font-semibold">Select Farmer</h5>
+                <select class="w-full p-2 border rounded">
+                    <option value="">Select farmer</option>
+                    <option value="1">Farmer A</option>
+                    <option value="2">Farmer B</option>
+                </select>
+            </div>
+            <hr class="my-2">
+            
+            <div>
+                <h5 class="text-sm font-semibold">Farm Location</h5>
+                <p>Add the location of the farm</p>
+                <div class="flex space-x-2">
+                    <input type="text" class="w-1/2 p-2 border rounded text-sm" placeholder="Latitude">
+                    <input type="text" class="w-1/2 p-2 border rounded text-sm" placeholder="Longitude">
+                </div>
+                <div class="flex space-x-2 mt-2">
+                    <select class="w-1/2 p-2 border rounded text-sm">
+                        <option>Select region</option>
+                        <option>Greater Accra</option>
+                    </select>
+                    <select class="w-1/2 p-2 border rounded text-sm">
+                        <option>Select district</option>
+                        <option>Accra</option>
+                    </select>
+                </div>
+                <div class="mt-2">
+                    <input type="text" class="w-full p-2 border rounded text-sm" placeholder="Town">
+                </div>
+            </div>
+
+            <hr class="my-2">
+
+            <div>
+                <h5 class="text-sm font-semibold">Add Crops</h5>
+                <p>Add all the crops grown on this farm</p>
+                <div class="flex space-x-2">
+                    <select id="crop-select" class="w-1/2 p-2 border rounded text-sm">
+                        <option value="">Select crop</option>
+                        <option value="1">Corn</option>
+                        <option value="2">Rice</option>
+                    </select>
+                    <input type="text" id="crop-size" class="w-1/2 p-2 border rounded text-sm" placeholder="Size (Acres)">
+                </div>
+                <div class="flex justify-end mt-2">
+                    <button type="button" id="add-crop" class="bg-blue-600 text-white px-4 py-2 rounded text-sm">Add crop</button>
+                </div>
+                <ul id="crop-list" class="mt-3 list-none space-y-2"></ul>
+            </div>
+
+            <div class="flex justify-center space-x-4 mt-5">
+                <button type="button" id="close-addfarm-sidebar" class="bg-red-600 text-white px-4 py-2 rounded text-sm">Cancel</button>
+                <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded text-sm">Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const addFarmSidebar = document.getElementById('add-farm');
+        const closeAddFarmButton = document.getElementById('close-addfarm-sidebar');
+        const xAddFarmButton = document.getElementById('x-addfarm-sidebar');
+        const addCropButton = document.getElementById('add-crop');
+        const cropSelect = document.getElementById('crop-select');
+        const cropSize = document.getElementById('crop-size');
+        const cropList = document.getElementById('crop-list');
+
+        // Open sidebar when add button is clicked
+        document.querySelector('.add-farm').addEventListener('click', function (e) {
+            e.preventDefault();
+            addFarmSidebar.style.right = '0';
+        });
+
+        // Close sidebar when cancel or X button is clicked
+        closeAddFarmButton.addEventListener('click', function () {
+            addFarmSidebar.style.right = '-400px';
+        });
+        xAddFarmButton.addEventListener('click', function () {
+            addFarmSidebar.style.right = '-400px';
+        });
+
+        // Add crop to list
+        addCropButton.addEventListener('click', function () {
+            if (cropSelect.value && cropSize.value) {
+                const cropId = cropSelect.value;
+                const cropName = cropSelect.options[cropSelect.selectedIndex].text;
+                const size = cropSize.value;
+
+                // Create list item
+                const listItem = document.createElement('li');
+                listItem.classList.add('flex', 'justify-between', 'items-center', 'border', 'p-2', 'bg-gray-100', 'rounded');
+                listItem.innerHTML = `${cropName} - ${size} acres`;
+
+                // Add remove button
+                const removeBtn = document.createElement('button');
+                removeBtn.classList.add('bg-red-600', 'text-white', 'px-2', 'py-1', 'rounded');
+                removeBtn.textContent = 'Remove';
+                removeBtn.onclick = () => listItem.remove();
+
+                listItem.appendChild(removeBtn);
+                cropList.appendChild(listItem);
+
+                // Clear the fields
+                cropSelect.value = '';
+                cropSize.value = '';
+            }
+        });
+    });
+</script>
+</div>
+</body>
+</html>

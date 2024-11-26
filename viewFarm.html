@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-sm flex">
+
+  <!-- Sidebar -->
+  <div class="fixed top-0 left-0 h-screen w-64 bg-white shadow-md hidden md:block" id="sidenav">
+    <div class="text-center py-6">
+      <img src="path/to/logo.png" alt="Logo" class="h-20 mx-auto">
+    </div>
+    <div>
+      <a href="home.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-home mr-3"></i> Home
+      </a>
+      <a href="allFarmers.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Farmers
+      </a>
+      <a href="allFarms.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-globe mr-3"></i> Farms
+      </a>
+      <a href="allPartners.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Partners
+      </a>
+      <a href="allAgents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Agents
+      </a>
+      <a href="allCrops.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-sun mr-3"></i> Crops
+      </a>
+      <a href="allFiles.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Files
+      </a>
+      <a href="allContents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Content
+      </a>
+      <a href="allPractices.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-file mr-3"></i> Best Practices
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-1 ml-64 p-4">
+    <div class="bg-white p-6 rounded-2xl shadow-lg">
+      <!-- Header -->
+      <div class="flex justify-between items-center flex-wrap p-3">
+        <span></span>
+        <div class="mt-2 md:mt-0">
+          <a href="#" class="flex items-center text-gray-700 hover:text-gray-900">
+            <i class="fa fa-edit mr-2"></i>
+            <p class="m-1">Edit</p>
+          </a>
+        </div>
+      </div>
+      
+      <div class="text-center my-3">
+        <h2 class="text-2xl font-semibold">Farmer Name</h2>
+      </div>
+
+      <!-- Location and GPS -->
+      <div class="flex justify-center my-3 text-center md:text-left">
+        <div class="w-full md:w-1/2 mb-3">
+          <p><b>Location:</b> Town, District, Region</p>
+        </div>
+        <div class="w-full md:w-1/2 mb-3">
+          <p><b>GPS:</b> Latitude, Longitude</p>
+        </div>
+      </div>
+      
+      <hr class="my-3">
+
+      <!-- Timestamps -->
+      <div class="flex my-3">
+        <div class="w-full md:w-1/2 mb-2 text-center md:text-left">
+          <p><b>Created at:</b> 10-08-2024 06:36</p>
+        </div>
+        <div class="w-full md:w-1/2 text-center md:text-left">
+          <p><b>Last Updated:</b> 10-08-2024 06:36</p>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <!-- Crops -->
+    <div class="flex justify-between">
+      <h5 class="mt-4 font-semibold"><b>Crops under cultivation</b></h5>
+      <a href="#" class="text-white bg-green-500 p-2 rounded-md hover:bg-green-600 add-crop">
+        <i class="fa fa-add"></i> New Crop
+      </a>
+    </div>
+
+    <div class="table-responsive mt-3">
+      <table class="shadow-lg rounded-lg overflow-hidden w-full">
+        <thead class="bg-gray-800 text-white">
+          <tr>
+            <th class="p-3">Name of Crop</th>
+            <th class="p-3">Crop Capacity (Acres)</th>
+            <th class="p-3">Created At</th>
+            <th class="p-3">Last Updated</th>
+            <th class="p-3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="transition-all duration-300 ease-in-out hover:bg-gray-200">
+            <td class="p-3">Crop Name</td>
+            <td class="p-3">10</td>
+            <td class="p-3">10-08-2024 06:36</td>
+            <td class="p-3">10-08-2024 06:36</td>
+            <td class="p-3">
+              <a href="#" class="text-blue-500 hover:text-blue-700">
+                <i class="fa fa-edit m-1" title="Edit"></i>
+              </a>
+              <i class="fa fa-trash text-red-500 m-1 hover:text-red-700" title="Delete"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+    <!-- Best Practices -->
+    <div class="flex justify-between">
+      <h5 class="mt-4 font-semibold"><b>Best Practices</b></h5>
+      <a href="#" class="text-white bg-green-500 p-2 rounded-md hover:bg-green-600 add-practice">
+        <i class="fa fa-add"></i> Attach Agronomic Practice to Farm
+      </a>
+    </div>
+
+    <div class="table-responsive mt-3 mb-5">
+      <table class="shadow-lg rounded-lg overflow-hidden w-full">
+        <thead class="bg-gray-800 text-white">
+          <tr>
+            <th class="p-3">Practice</th>
+            <th class="p-3">Duration</th>
+            <th class="p-3">Status</th>
+            <th class="p-3">Created At</th>
+            <th class="p-3">Last Updated</th>
+            <th class="p-3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="transition-all duration-300 ease-in-out hover:bg-gray-200">
+            <td class="p-3">Mulching</td>
+            <td class="p-3">1 week</td>
+            <td class="p-3">Pending</td>
+            <td class="p-3">10-08-2024 06:36</td>
+            <td class="p-3">10-08-2024 06:36</td>
+            <td class="p-3">
+              <a href="#" class="text-blue-500 hover:text-blue-700">
+                <i class="fa fa-edit m-1" title="Edit"></i>
+              </a>
+              <i class="fa fa-trash text-red-500 m-1 hover:text-red-700" title="Delete"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Sidebars -->
+    <div id="add-crop" class="fixed top-0 right-[-100%] w-96 h-full bg-white shadow-lg transition-transform duration-300 overflow-y-scroll">
+      <div class="p-6">
+        <button type="button" class="text-gray-600 hover:text-gray-900" id="close-crop-sidebar">
+          <i class="fa fa-close"></i>
+        </button>
+        <h4 class="text-xl font-semibold">New Crop</h4>
+        <form class="mt-4">
+          <!-- Crop form -->
+          <div class="flex flex-col mb-4">
+            <label for="crop" class="mb-2 font-medium">Crop</label>
+            <select id="crop" class="border p-2 rounded">
+              <option>Select a crop</option>
+              <option>Soyabean</option>
+              <option>Maize</option>
+            </select>
+          </div>
+          <div class="flex flex-col mb-4">
+            <label for="size" class="mb-2 font-medium">Size (Acres)</label>
+            <input id="size" type="text" placeholder="Enter size" class="border p-2 rounded">
+          </div>
+          <div class="flex justify-end space-x-4">
+            <button type="button" id="close-crop-sidebar" class="text-white bg-red-500 p-2 rounded">Cancel</button>
+            <button type="submit" class="text-white bg-green-500 p-2 rounded">Add Crop</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const cropSidebar = document.getElementById('add-crop');
+        const openCropSidebar = document.querySelector('.add-crop');
+        const closeCropSidebar = document.getElementById('close-crop-sidebar');
+
+        openCropSidebar.addEventListener('click', (e) => {
+          e.preventDefault();
+          cropSidebar.style.transform = 'translateX(0)';
+        });
+
+        closeCropSidebar.addEventListener('click', () => {
+          cropSidebar.style.transform = 'translateX(100%)';
+        });
+      });
+    </script>
+  </main>
+</body>
+</html>
+c

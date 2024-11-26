@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-sm">
+  <div class="fixed top-0 left-0 h-screen w-64 bg-white shadow-md hidden md:block" id="sidenav">
+    <div class="text-center py-6">
+      <img src="path/to/logo.png" alt="Logo" class="h-20 mx-auto">
+    </div>
+    <div>
+      <a href="home.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-home mr-3"></i> Home
+      </a>
+      <a href="allFarmers.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Farmers
+      </a>
+      <a href="allFarms.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-globe mr-3"></i> Farms
+      </a>
+      <a href="allPartners.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Partners
+      </a>
+      <a href="allAgents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Agents
+      </a>
+      <a href="allCrops.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-sun mr-3"></i> Crops
+      </a>
+      <a href="allFiles.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Files
+      </a>
+      <a href="allContents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Content
+      </a>
+      <a href="allPractices.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-file mr-3"></i> Best Practices
+      </a>
+    </div>
+  </div>
+  <div class="ml-0 md:ml-64 p-4">
+    <header class="flex justify-between items-center bg-white shadow-md p-4 rounded-md">
+      <div class="text-lg font-semibold">Dashboard</div>
+    </header>
+
+    <main class="my-4">
+      <!-- Dashboard Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-gray-700 text-white rounded-md flex items-center h-24">
+          <div class="w-12 h-full bg-white"></div>
+          <div class="p-4">
+            <h1 class="text-3xl font-bold">361</h1>
+            <p class="font-semibold">Active Farmers</p>
+          </div>
+        </div>
+        <div class="bg-gray-700 text-white rounded-md flex items-center h-24">
+          <div class="w-12 h-full bg-white"></div>
+          <div class="p-4">
+            <h1 class="text-3xl font-bold">361</h1>
+            <p class="font-semibold">Active Farmers</p>
+          </div>
+        </div>
+        <div class="bg-gray-700 text-white rounded-md flex items-center h-24">
+          <div class="w-12 h-full bg-white"></div>
+          <div class="p-4">
+            <h1 class="text-3xl font-bold">361</h1>
+            <p class="font-semibold">Active Farmers</p>
+          </div>
+        </div>
+        <div class="bg-gray-700 text-white rounded-md flex items-center h-24">
+          <div class="w-12 h-full bg-white"></div>
+          <div class="p-4">
+            <h1 class="text-3xl font-bold">361</h1>
+            <p class="font-semibold">Active Farmers</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="my-8">
+        <div class="bg-white shadow-sm rounded p-4">
+          <canvas id="chartjs-dotted-line-1" width="400" height="300"></canvas>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
+          <div class="bg-white shadow-sm rounded p-4">
+            <canvas id="chartjs-polar-area-1"></canvas>
+          </div>
+          <div class="bg-white shadow-sm rounded p-4">
+            <canvas id="chartjs-bar-1"></canvas>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Chart.js Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Chart Data
+      const data = {
+        labels: ["Okra", "Soyabeans", "Ground nut", "Pepper", "Onion"],
+        datasets: [{
+          label: "Model S",
+          data: [35, 38, 65, 70, 24],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(255, 205, 86, 0.5)',
+            'rgba(201, 203, 207, 0.5)',
+            'rgba(54, 162, 235, 0.5)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(255, 205, 86, 1)',
+            'rgba(201, 203, 207, 1)',
+            'rgba(54, 162, 235, 1)'
+          ],
+          borderWidth: 1
+        }]
+      };
+
+      const lineData = {
+        labels: ["Okra", "Soyabeans", "Ground nut", "Pepper", "Onion"],
+        datasets: [{
+          label: "Model S",
+          data: [35, 38, 65, 70, 24],
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderWidth: 2,
+          borderDash: [5, 5],
+          fill: false
+        }]
+      };
+
+      // Chart Configurations
+      const options = { responsive: true, maintainAspectRatio: false };
+
+      // Initialize Charts
+      new Chart(document.getElementById("chartjs-polar-area-1"), {
+        type: "polarArea",
+        data: data,
+        options: options
+      });
+
+      new Chart(document.getElementById("chartjs-bar-1"), {
+        type: "bar",
+        data: data,
+        options: { ...options, scales: { x: { beginAtZero: true }, y: { beginAtZero: true } } }
+      });
+
+      new Chart(document.getElementById("chartjs-dotted-line-1"), {
+        type: "line",
+        data: lineData,
+        options: { ...options, scales: { x: { beginAtZero: true }, y: { beginAtZero: true } } }
+      });
+    });
+  </script>
+</body>
+</html>

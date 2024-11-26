@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crop Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-sm">
+
+<!-- Sidebar -->
+<div class="fixed top-0 left-0 h-screen w-64 bg-white shadow-md hidden md:block" id="sidenav">
+  <div class="text-center py-6">
+    <img src="path/to/logo.png" alt="Logo" class="h-20 mx-auto">
+  </div>
+  <div>
+    <a href="home.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+      <i class="fas fa-home mr-3"></i> Home
+    </a>
+    <a href="allFarmers.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+      <i class="fas fa-users mr-3"></i> Farmers
+    </a>
+    <a href="allFarms.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+      <i class="fas fa-globe mr-3"></i> Farms
+    </a>
+    <a href="allPartners.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+      <i class="fas fa-users mr-3"></i> Partners
+    </a>
+    <a href="allAgents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+      <i class="fas fa-users mr-3"></i> Agents
+    </a>
+    <a href="allCrops.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+      <i class="fas fa-seedling mr-3"></i> Crops
+    </a>
+    <a href="allFiles.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+      <i class="fas fa-book mr-3"></i> Files
+    </a>
+    <a href="allContents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+      <i class="fas fa-file-alt mr-3"></i> Content
+    </a>
+    <a href="allPractices.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+      <i class="fas fa-leaf mr-3"></i> Best Practices
+    </a>
+  </div>
+</div>
+
+<!-- Main Content -->
+<div class="ml-64 p-4">
+
+  <header class="flex justify-end items-center bg-white shadow-md p-4 rounded-md mb-4">
+      <input type="text" placeholder="Search" class="w-full m-3 p-3 border rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-green-500">
+      <a href="#" class="btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded add-crop" style="width: 10rem;">
+        <i class="fas fa-plus"></i> New Crop
+      </a>
+    </header>
+
+  <div class="table-responsive mt-6">
+    <table class="table-auto w-full bg-white rounded-lg shadow-md">
+      <thead class="bg-gray-800 text-white">
+        <tr>
+          <th class="p-3">Name</th>
+          <th class="p-3">Created At</th>
+          <th class="p-3">Last Updated</th>
+          <th class="p-3">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hover:bg-gray-100">
+          <td class="p-3">Wheat</td>
+          <td class="p-3">10-08-2024 06:36</td>
+          <td class="p-3">11-08-2024 12:45</td>
+          <td class="p-3">
+            <a href="viewCrop.html" class="text-blue-500 hover:text-blue-700"><i class="fas fa-eye"></i>View</a>
+            <a href="#" class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i>Delete</a>
+          </td>
+        </tr>
+        <tr class="hover:bg-gray-100">
+          <td class="p-3">Corn</td>
+          <td class="p-3">12-08-2024 08:15</td>
+          <td class="p-3">13-08-2024 09:30</td>
+          <td class="p-3">
+            <a href="viewCrop.html" class="text-blue-500 hover:text-blue-700"><i class="fas fa-eye"></i>View</a>
+            <a href="#" class="text-red-500 hover:text-red-700"><i class="fas fa-trash"></i> Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Add Crop Sidebar -->
+<div id="add-crop-sidebar" class="fixed top-0 right-0 w-96 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 overflow-y-auto">
+  <div class="p-6">
+    <button type="button" class="text-gray-600 hover:text-gray-900" id="x-addcrop-sidebar" style="float: right;">
+      <i class="fas fa-times"></i>
+    </button>
+    <h4 class="text-xl font-semibold mt-4">New Crop</h4>
+    <form class="mt-4">
+      <div class="mb-4">
+        <input type="text" class="w-full p-2 border rounded-md" placeholder="Crop Name">
+      </div>
+      <div class="mb-4">
+        <textarea class="w-full p-2 border rounded-md" placeholder="Description"></textarea>
+      </div>
+      <div class="mb-4 flex items-center">
+        <input type="file" class="w-full border rounded-md p-2">
+      </div>
+      <div class="flex justify-between">
+        <button type="button" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600" id="close-addcrop-sidebar">Cancel</button>
+        <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">Create</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const addCropSidebar = document.getElementById('add-crop-sidebar');
+    const addCropButton = document.querySelector('.add-crop');
+    const closeSidebarButtons = document.querySelectorAll('#close-addcrop-sidebar, #x-addcrop-sidebar');
+
+    addCropButton.addEventListener('click', function (e) {
+      e.preventDefault();
+      addCropSidebar.classList.remove('translate-x-full');
+    });
+
+    closeSidebarButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        addCropSidebar.classList.add('translate-x-full');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

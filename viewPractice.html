@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-sm flex">
+
+  <!-- Sidebar -->
+  <div class="fixed top-0 left-0 h-screen w-64 bg-white shadow-md hidden md:block" id="sidenav">
+    <div class="text-center py-6">
+      <img src="path/to/logo.png" alt="Logo" class="h-20 mx-auto">
+    </div>
+    <div>
+      <a href="home.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-home mr-3"></i> Home
+      </a>
+      <a href="allFarmers.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Farmers
+      </a>
+      <a href="allFarms.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-globe mr-3"></i> Farms
+      </a>
+      <a href="allPartners.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Partners
+      </a>
+      <a href="allAgents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Agents
+      </a>
+      <a href="allCrops.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-sun mr-3"></i> Crops
+      </a>
+      <a href="allFiles.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Files
+      </a>
+      <a href="allContents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Content
+      </a>
+      <a href="allPractices.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-file mr-3"></i> Best Practices
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-1 ml-64 p-4">
+    <!-- Header -->
+    <div class=" p-3 rounded-lg shadow-md mb-4">
+      <div class="flex justify-between items-center">
+        <div></div>
+        <div class="flex items-center">
+          <a href="#" class="text-decoration-none flex items-center text-green-600">
+            <i class="fa fa-edit m-2"></i>
+            <p class="m-1">Edit</p>
+          </a>
+        </div>
+      </div>
+      <div class="text-center my-3">
+        <h2 class="text-2xl font-semibold">Sample Practice Title</h2>
+      </div>
+      <hr class="my-3">
+      <div class="flex justify-between my-3">
+        <div class="text-center md:text-left">
+          <p><b>Created at:</b> 10-08-2024 06:36</p>
+        </div>
+        <div class="text-center md:text-left">
+          <p><b>Last Updated:</b> 12-08-2024 14:50</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-between items-center mt-4">
+      <h5 class="font-semibold">Practice Details</h5>
+      <button class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 add-practice">
+        <i class="fa fa-plus"></i> Add practice attachments
+      </button>
+    </div>
+
+    <div class="overflow-x-auto mt-6">
+      <table class="table-auto w-full text-left rounded-lg shadow-lg overflow-hidden">
+        <thead class="bg-gray-800 text-white">
+          <tr>
+            <th class="p-3">Attachments</th>
+            <th class="p-3">Type</th>
+            <th class="p-3">Created At</th>
+            <th class="p-3">Last Updated</th>
+            <th class="p-3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Dummy Data Row 1 -->
+          <tr class="bg-gray-50 hover:bg-gray-100 border-b border-white">
+            <td class="p-3">Sample Attachment 1</td>
+            <td class="p-3">PDF</td>
+            <td class="p-3">10-08-2024 06:36</td>
+            <td class="p-3">10-08-2024 06:36</td>
+            <td class="p-3">
+              <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fa fa-edit m-1" title="Edit"></i></a>
+              <a href="#" class="text-red-500 hover:text-red-700"><i class="fa fa-trash m-1" title="Delete"></i></a>
+            </td>
+          </tr>
+          <!-- Dummy Data Row 2 -->
+          <tr class="bg-gray-50 hover:bg-gray-100 border-b border-white">
+            <td class="p-3">Sample Attachment 2</td>
+            <td class="p-3">Image</td>
+            <td class="p-3">11-08-2024 10:00</td>
+            <td class="p-3">12-08-2024 12:00</td>
+            <td class="p-3">
+              <a href="#" class="text-blue-500 hover:text-blue-700"><i class="fa fa-edit m-1" title="Edit"></i></a>
+              <a href="#" class="text-red-500 hover:text-red-700"><i class="fa fa-trash m-1" title="Delete"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Sidebar for adding attachments -->
+    <div id="add-practice-sidebar" class="fixed top-0 right-[-400px] w-[400px] h-full bg-white shadow-lg transition-all duration-300 overflow-y-auto rounded-lg">
+      <div class="p-6">
+        <button type="button" class="text-gray-500 hover:text-black float-right" id="x-addpractice-sidebar">
+          <i class="fa fa-times"></i>
+        </button>
+        <h4 class="text-lg font-bold mb-4">Add Practice Attachments</h4>
+        <form action="#" method="post" enctype="multipart/form-data">
+          <div class="grid grid-cols-1 gap-4 mb-4">
+            <input type="text" class="border p-2 rounded" placeholder="Title" name="title" required>
+            <textarea class="border p-2 rounded" placeholder="Description" name="description" required></textarea>
+          </div>
+          <div class="grid grid-cols-1 gap-4 mb-4">
+            <input type="file" class="border p-2 rounded" name="file1" required>
+            <input type="file" class="border p-2 rounded" name="file2" required>
+            <input type="file" class="border p-2 rounded" name="file3" required>
+          </div>
+          <div class="flex justify-between mt-4">
+            <button type="button" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600" id="close-addpractice-sidebar">Cancel</button>
+            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Sidebar toggle functionality
+    document.querySelector('.add-practice').addEventListener('click', () => {
+      document.getElementById('add-practice-sidebar').style.right = '0';
+    });
+
+    document.getElementById('close-addpractice-sidebar').addEventListener('click', () => {
+      document.getElementById('add-practice-sidebar').style.right = '-400px';
+    });
+
+    document.getElementById('x-addpractice-sidebar').addEventListener('click', () => {
+      document.getElementById('add-practice-sidebar').style.right = '-400px';
+    });
+  </script>
+
+</body>
+</html>

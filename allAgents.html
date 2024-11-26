@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Management</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-sm flex">
+
+  <!-- Sidebar -->
+  <div class="fixed top-0 left-0 h-screen w-64 bg-white shadow-md hidden md:block" id="sidenav">
+    <div class="text-center py-6">
+      <img src="path/to/logo.png" alt="Logo" class="h-20 mx-auto">
+    </div>
+    <div>
+      <a href="home.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-home mr-3"></i> Home
+      </a>
+      <a href="allFarmers.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Farmers
+      </a>
+      <a href="allFarms.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-globe mr-3"></i> Farms
+      </a>
+      <a href="allPartners.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Partners
+      </a>
+      <a href="allAgents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Agents
+      </a>
+      <a href="allCrops.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-sun mr-3"></i> Crops
+      </a>
+      <a href="allFiles.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Files
+      </a>
+      <a href="allContents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Content
+      </a>
+      <a href="allPractices.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-file mr-3"></i> Best Practices
+      </a>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="flex-1 ml-64 p-4">
+    <!-- Header -->
+    <header class="flex justify-end items-center bg-white shadow-md p-4 rounded-md mb-4">
+      <input type="text" placeholder="Search" class="w-full m-3 p-3 border rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-green-500">
+      <a href="#" class="btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded add-agent" style="width: 10rem;">
+        <i class="fa fa-plus"></i> New Agent
+      </a>
+    </header>
+
+    <!-- Table -->
+    <div class="overflow-x-auto mt-3">
+      <table class="w-full border-collapse rounded-lg overflow-hidden shadow-lg">
+        <thead class="bg-gray-800 text-white">
+          <tr>
+            <th class="py-3 px-4 text-left min-w-[10rem]">Name</th>
+            <th class="py-3 px-4 text-left min-w-[10rem]">Phone</th>
+            <th class="py-3 px-4 text-left min-w-[10rem]">Pin</th>
+            <th class="py-3 px-4 text-left min-w-[10rem]">Created At</th>
+            <th class="py-3 px-4 text-left min-w-[10rem]">Last Updated</th>
+            <th class="py-3 px-4 text-left min-w-[10rem]">Action</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          <!-- Example Row -->
+          <tr class="hover:bg-gray-100 border-b">
+            <td class="py-3 px-4">John Doe</td>
+            <td class="py-3 px-4">+1234567890</td>
+            <td class="py-3 px-4 font-mono">1234</td>
+            <td class="py-3 px-4">01-01-2024 12:00</td>
+            <td class="py-3 px-4">02-01-2024 14:30</td>
+            <td class="py-3 px-4">
+              <a href="viewAgent.html" class="text-blue-500 hover:underline"><i class="fa fa-eye"></i> View</a>
+              <a href="#" class="text-red-500 hover:underline ml-2"><i class="fa fa-trash"></i> Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- New Agent Sidebar -->
+    <div id="add-agent-sidebar" class="fixed top-0 right-[-400px] w-[400px] h-full bg-gray-100 shadow-lg transition-all duration-300 z-50 overflow-y-auto">
+      <div class="p-4">
+        <button id="x-addagent-sidebar" class="text-gray-500 hover:text-black float-right">
+          <i class="fa fa-times"></i>
+        </button>
+        <h4 class="text-lg font-bold mb-2">New Agent</h4>
+        <hr>
+        <form action="#" method="post" class="space-y-4 mt-5">
+          <div class="flex space-x-2">
+            <input type="text" class="flex-1 p-2 border rounded" placeholder="Agent Name" name="name" required>
+            <input type="text" class="flex-1 p-2 border rounded" placeholder="Phone Number" name="number" required>
+          </div>
+          <div class="flex space-x-2">
+            <input type="password" class="flex-1 p-2 border rounded" placeholder="Pin" name="pin" required>
+            <input type="password" class="flex-1 p-2 border rounded" placeholder="Confirm Pin" name="cpin" required>
+          </div>
+          <div class="flex space-x-2 items-center">
+            <input type="text" class="flex-1 p-2 border rounded" placeholder="Enter OTP" name="otp" required>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded">Send OTP</button>
+          </div>
+          <div class="flex justify-center space-x-4">
+            <button type="button" id="close-addagent-sidebar" class="bg-red-600 text-white px-4 py-2 rounded">Cancel</button>
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Create</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const addAgentSidebar = document.getElementById('add-agent-sidebar');
+      const addAgentButton = document.querySelector('.add-agent');
+      const closeSidebarButtons = [
+        document.getElementById('close-addagent-sidebar'),
+        document.getElementById('x-addagent-sidebar'),
+      ];
+
+      addAgentButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        addAgentSidebar.style.right = '0';
+      });
+
+      closeSidebarButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          addAgentSidebar.style.right = '-400px';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

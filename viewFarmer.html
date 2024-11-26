@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-sm flex">
+
+  <!-- Sidebar -->
+  <div class="fixed top-0 left-0 h-screen w-64 bg-white shadow-md hidden md:block" id="sidenav">
+    <div class="text-center py-6">
+      <img src="path/to/logo.png" alt="Logo" class="h-20 mx-auto">
+    </div>
+    <div>
+      <a href="home.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-home mr-3"></i> Home
+      </a>
+      <a href="allFarmers.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Farmers
+      </a>
+      <a href="allFarms.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-globe mr-3"></i> Farms
+      </a>
+      <a href="allPartners.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Partners
+      </a>
+      <a href="allAgents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-users mr-3"></i> Agents
+      </a>
+      <a href="allCrops.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-sun mr-3"></i> Crops
+      </a>
+      <a href="allFiles.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Files
+      </a>
+      <a href="allContents.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-book mr-3"></i> Content
+      </a>
+      <a href="allPractices.html" class="flex items-center p-3 m-2 rounded-md hover:bg-gray-200">
+        <i class="fas fa-file mr-3"></i> Best Practices
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-1 ml-64 p-4">
+    <div class="bg-white p-6 rounded-2xl shadow-lg">
+      <!-- Header -->
+      <div class="flex justify-between items-center flex-wrap">
+        <h2 class="text-2xl font-semibold">Farmer Name</h2>
+        <div class="mt-2 md:mt-0">
+          <button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 edit-farmer">Edit Farmer</button>
+        </div>
+      </div>
+
+      <!-- Information Rows -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
+        <div>
+          <p class="font-semibold">Gender</p>
+          <p>Male</p>
+        </div>
+        <div>
+          <p class="font-semibold">Phone number</p>
+          <p>+233000000000</p>
+        </div>
+        <div>
+          <p class="font-semibold">Ghana Card</p>
+          <p>GHA-12345678</p>
+        </div>
+        <div>
+          <p class="font-semibold">Date of Birth</p>
+          <p>01-01-1990</p>
+        </div>
+        <div>
+          <p class="font-semibold">Education</p>
+          <p>Bachelor's</p>
+        </div>
+        <div>
+          <p class="font-semibold">Disabilities</p>
+          <p>None</p>
+        </div>
+        <div>
+          <p class="font-semibold">Occupation</p>
+          <p>Farming</p>
+        </div>
+        <div>
+          <p class="font-semibold">Language</p>
+          <p>English</p>
+        </div>
+        <div>
+          <p class="font-semibold">Location</p>
+          <p>Town, Region</p>
+        </div>
+      </div>
+
+      <hr class="my-6">
+
+      <!-- Timestamps -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+        <div>
+          <p class="font-semibold">Created at:</p>
+          <p>10-08-2024 06:36</p>
+        </div>
+        <div>
+          <p class="font-semibold">Last Updated:</p>
+          <p>10-08-2024 06:36</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Farms Section -->
+    <div class="flex justify-between items-center mt-6">
+      <h3 class="text-xl font-semibold">Farms</h3>
+      <button class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 add-farm">
+        <i class="fa fa-plus"></i> New Farm
+      </button>
+    </div>
+    <div class="overflow-x-auto mt-6">
+      <table class="table-auto w-full text-left rounded-lg shadow-lg">
+        <thead class="bg-gray-800 text-white">
+          <tr>
+            <th class="p-3">Location</th>
+            <th class="p-3">GPS</th>
+            <th class="p-3">Crop</th>
+            <th class="p-3">Created At</th>
+            <th class="p-3">Last Updated</th>
+            <th class="p-3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-gray-50 hover:bg-gray-100">
+            <td class="p-3">Town, District, Region</td>
+            <td class="p-3">Lat, Long</td>
+            <td class="p-3">Maize, Rice</td>
+            <td class="p-3">01-01-2024 12:00</td>
+            <td class="p-3">02-01-2024 14:30</td>
+            <td class="p-3">
+              <button class="text-blue-500 hover:text-blue-700"><i class="fa fa-eye"></i> View</button>
+              <button class="text-red-500 hover:text-red-700 ml-2"><i class="fa fa-trash"></i> Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Devices Section -->
+    <div class="flex justify-between items-center mt-6">
+      <h3 class="text-xl font-semibold">Farmer's Devices</h3>
+      <button class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 add-device">
+        <i class="fa fa-plus"></i> New Device
+      </button>
+    </div>
+    <div class="overflow-x-auto mt-6">
+      <table class="table-auto w-full text-left rounded-lg shadow-lg">
+        <thead class="bg-gray-800 text-white">
+          <tr>
+            <th class="p-3">Device Name</th>
+            <th class="p-3">Created At</th>
+            <th class="p-3">Last Updated</th>
+            <th class="p-3">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-gray-50 hover:bg-gray-100">
+            <td class="p-3">Sensor</td>
+            <td class="p-3">01-01-2024 12:00</td>
+            <td class="p-3">02-01-2024 14:30</td>
+            <td class="p-3">
+              <button class="text-blue-500 hover:text-blue-700"><i class="fa fa-edit"></i> Edit</button>
+              <button class="text-red-500 hover:text-red-700 ml-2"><i class="fa fa-trash"></i> Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Sidebar for Adding Farms -->
+    <div id="add-farm-sidebar" class="fixed top-0 right-[-400px] w-[400px] h-full bg-white shadow-lg transition-transform overflow-y-auto">
+      <div class="p-6">
+        <button class="text-gray-500 hover:text-black float-right" id="close-farm-sidebar">
+          <i class="fa fa-times"></i>
+        </button>
+        <h4 class="text-lg font-bold mb-4">Add New Farm</h4>
+        <form>
+          <div class="flex flex-col space-y-4">
+            <input type="text" placeholder="Latitude" class="border p-2 rounded">
+            <input type="text" placeholder="Longitude" class="border p-2 rounded">
+          </div>
+          <div class="flex justify-end mt-4">
+            <button type="button" class="text-white bg-red-500 px-4 py-2 rounded mr-2" id="close-farm-sidebar">Cancel</button>
+            <button type="submit" class="text-white bg-green-500 px-4 py-2 rounded">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Sidebar toggles
+    document.querySelector('.add-farm').addEventListener('click', () => {
+      document.getElementById('add-farm-sidebar').style.transform = 'translateX(0)';
+    });
+
+    document.getElementById('close-farm-sidebar').addEventListener('click', () => {
+      document.getElementById('add-farm-sidebar').style.transform = 'translateX(100%)';
+    });
+  </script>
+</body>
+</html>
